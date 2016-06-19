@@ -21,6 +21,10 @@
 		E6AE0E081D14B11500C366F1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0E071D14B11500C366F1 /* Comment.swift */; };
 		E6AE0E0A1D14B12F00C366F1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0E091D14B12F00C366F1 /* Account.swift */; };
 		E6AE0E0C1D14B13E00C366F1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0E0B1D14B13E00C366F1 /* Post.swift */; };
+		E6AE0E0E1D15A6FB00C366F1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0E0D1D15A6FA00C366F1 /* HomeViewController.swift */; };
+		E6AE0E101D15A71100C366F1 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0E0F1D15A71100C366F1 /* FeedTableViewController.swift */; };
+		E6AE0E121D15AB5300C366F1 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6AE0E111D15AB5300C366F1 /* PostView.xib */; };
+		E6AE0E141D160FCE00C366F1 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0E131D160FCE00C366F1 /* PostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,10 @@
 		E6AE0E071D14B11500C366F1 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		E6AE0E091D14B12F00C366F1 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		E6AE0E0B1D14B13E00C366F1 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		E6AE0E0D1D15A6FA00C366F1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E6AE0E0F1D15A71100C366F1 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		E6AE0E111D15AB5300C366F1 /* PostView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
+		E6AE0E131D160FCE00C366F1 /* PostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +121,10 @@
 			children = (
 				E6AE0DD01D14B02B00C366F1 /* AppDelegate.swift */,
 				E6AE0DD21D14B02B00C366F1 /* ViewController.swift */,
+				E6AE0E0D1D15A6FA00C366F1 /* HomeViewController.swift */,
+				E6AE0E111D15AB5300C366F1 /* PostView.xib */,
+				E6AE0E131D160FCE00C366F1 /* PostView.swift */,
+				E6AE0E0F1D15A71100C366F1 /* FeedTableViewController.swift */,
 				E6AE0DD41D14B02B00C366F1 /* Main.storyboard */,
 				E6AE0E011D14B0C600C366F1 /* Profile.storyboard */,
 				E6AE0E031D14B0EC00C366F1 /* Picture.storyboard */,
@@ -252,6 +264,7 @@
 			files = (
 				E6AE0E041D14B0EC00C366F1 /* Picture.storyboard in Resources */,
 				E6AE0DDE1D14B02B00C366F1 /* LaunchScreen.storyboard in Resources */,
+				E6AE0E121D15AB5300C366F1 /* PostView.xib in Resources */,
 				E6AE0DDB1D14B02B00C366F1 /* Assets.xcassets in Resources */,
 				E6AE0E021D14B0C600C366F1 /* Profile.storyboard in Resources */,
 				E6AE0DD61D14B02B00C366F1 /* Main.storyboard in Resources */,
@@ -282,9 +295,12 @@
 				E6AE0E081D14B11500C366F1 /* Comment.swift in Sources */,
 				E6AE0E061D14B10600C366F1 /* Picture.swift in Sources */,
 				E6AE0DD31D14B02B00C366F1 /* ViewController.swift in Sources */,
+				E6AE0E0E1D15A6FB00C366F1 /* HomeViewController.swift in Sources */,
+				E6AE0E101D15A71100C366F1 /* FeedTableViewController.swift in Sources */,
 				E6AE0DD91D14B02B00C366F1 /* Instagram.xcdatamodeld in Sources */,
 				E6AE0DD11D14B02B00C366F1 /* AppDelegate.swift in Sources */,
 				E6AE0E0C1D14B13E00C366F1 /* Post.swift in Sources */,
+				E6AE0E141D160FCE00C366F1 /* PostView.swift in Sources */,
 				E6AE0E0A1D14B12F00C366F1 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
