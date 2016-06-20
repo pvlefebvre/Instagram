@@ -10,6 +10,7 @@
 		97113F051D1718950015C17C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97113F041D1718950015C17C /* ProfileViewController.swift */; };
 		97113F091D1753D90015C17C /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97113F081D1753D90015C17C /* EditProfileTableViewController.swift */; };
 		97113F0B1D1754CD0015C17C /* PhotoCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97113F0A1D1754CD0015C17C /* PhotoCommentsViewController.swift */; };
+		97113F0F1D1896710015C17C /* ProfileSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97113F0E1D1896710015C17C /* ProfileSettingsTableViewController.swift */; };
 		E6AE0DD11D14B02B00C366F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0DD01D14B02B00C366F1 /* AppDelegate.swift */; };
 		E6AE0DD31D14B02B00C366F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0DD21D14B02B00C366F1 /* ViewController.swift */; };
 		E6AE0DD61D14B02B00C366F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6AE0DD41D14B02B00C366F1 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		97113F041D1718950015C17C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../ProfileViewController.swift; sourceTree = "<group>"; };
 		97113F081D1753D90015C17C /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		97113F0A1D1754CD0015C17C /* PhotoCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCommentsViewController.swift; sourceTree = "<group>"; };
+		97113F0E1D1896710015C17C /* ProfileSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSettingsTableViewController.swift; path = ../ProfileSettingsTableViewController.swift; sourceTree = "<group>"; };
 		E6AE0DCD1D14B02B00C366F1 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6AE0DD01D14B02B00C366F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6AE0DD21D14B02B00C366F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				97113F041D1718950015C17C /* ProfileViewController.swift */,
 				97113F081D1753D90015C17C /* EditProfileTableViewController.swift */,
 				97113F0A1D1754CD0015C17C /* PhotoCommentsViewController.swift */,
+				97113F0E1D1896710015C17C /* ProfileSettingsTableViewController.swift */,
 				E6AE0E031D14B0EC00C366F1 /* Picture.storyboard */,
 				E6AE0E051D14B10600C366F1 /* Picture.swift */,
 				E6AE0E071D14B11500C366F1 /* Comment.swift */,
@@ -297,6 +300,7 @@
 				97113F091D1753D90015C17C /* EditProfileTableViewController.swift in Sources */,
 				E6AE0E0C1D14B13E00C366F1 /* Post.swift in Sources */,
 				97113F051D1718950015C17C /* ProfileViewController.swift in Sources */,
+				97113F0F1D1896710015C17C /* ProfileSettingsTableViewController.swift in Sources */,
 				E6AE0E0A1D14B12F00C366F1 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

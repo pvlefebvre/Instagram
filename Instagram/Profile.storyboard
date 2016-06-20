@@ -34,6 +34,34 @@
             </objects>
             <point key="canvasLocation" x="838" y="-442"/>
         </scene>
+        <!--Profile Settings Table View Controller-->
+        <scene sceneID="7cI-cR-Xlq">
+            <objects>
+                <tableViewController id="BF3-UE-Sda" customClass="ProfileSettingsTableViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FAT-NN-sJf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="Iva-wS-aHQ">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iva-wS-aHQ" id="rdT-aW-cDi">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BF3-UE-Sda" id="5Ew-Um-JTA"/>
+                            <outlet property="delegate" destination="BF3-UE-Sda" id="ecI-9v-k6E"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eZX-KA-VFc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1616" y="229"/>
+        </scene>
         <!--Profile Name-->
         <scene sceneID="zhr-59-Kt8">
             <objects>
@@ -200,7 +228,13 @@
                             <constraint firstItem="zZn-fJ-1I1" firstAttribute="top" secondItem="9pq-4I-jRV" secondAttribute="bottom" constant="183" id="z3v-VH-M5J"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile Name" id="Od0-nI-gWN"/>
+                    <navigationItem key="navigationItem" title="Profile Name" id="Od0-nI-gWN">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="V27-uA-cZB">
+                            <connections>
+                                <segue destination="BF3-UE-Sda" kind="show" id="R3C-kw-QrG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="followersCountLabel" destination="Ilq-7N-r60" id="KR0-yx-Du8"/>
                         <outlet property="followingCounterLabel" destination="hl3-YY-Pv1" id="zGq-ME-DCT"/>
@@ -252,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBb-8D-bta" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1526" y="229"/>
+            <point key="canvasLocation" x="838" y="985"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fuw-XW-vi3">

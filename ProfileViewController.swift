@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 20
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ProfilePhotoCell", forIndexPath: indexPath) 
