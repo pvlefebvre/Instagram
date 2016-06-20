@@ -33,6 +33,10 @@
 		E6AE0E101D15A71100C366F1 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0E0F1D15A71100C366F1 /* FeedTableViewController.swift */; };
 		E6AE0E121D15AB5300C366F1 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6AE0E111D15AB5300C366F1 /* PostView.xib */; };
 		E6AE0E141D160FCE00C366F1 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0E131D160FCE00C366F1 /* PostView.swift */; };
+		E6AE0E641D189A8300C366F1 /* PostHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0E631D189A8300C366F1 /* PostHeaderCell.swift */; };
+		E6AE0E661D189B1900C366F1 /* PostImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0E651D189B1900C366F1 /* PostImageCell.swift */; };
+		E6AE0E681D189B3800C366F1 /* PostSubBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0E671D189B3800C366F1 /* PostSubBarCell.swift */; };
+		E6AE0E6A1D189B9000C366F1 /* PostCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0E691D189B9000C366F1 /* PostCommentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,10 @@
 		E6AE0E0F1D15A71100C366F1 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		E6AE0E111D15AB5300C366F1 /* PostView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
 		E6AE0E131D160FCE00C366F1 /* PostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		E6AE0E631D189A8300C366F1 /* PostHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostHeaderCell.swift; sourceTree = "<group>"; };
+		E6AE0E651D189B1900C366F1 /* PostImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageCell.swift; sourceTree = "<group>"; };
+		E6AE0E671D189B3800C366F1 /* PostSubBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSubBarCell.swift; sourceTree = "<group>"; };
+		E6AE0E691D189B9000C366F1 /* PostCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCommentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +150,10 @@
 				E6AE0E131D160FCE00C366F1 /* PostView.swift */,
 				E6AE0E0F1D15A71100C366F1 /* FeedTableViewController.swift */,
 				E6AE0DD41D14B02B00C366F1 /* Main.storyboard */,
+				E6AE0E651D189B1900C366F1 /* PostImageCell.swift */,
+				E6AE0E671D189B3800C366F1 /* PostSubBarCell.swift */,
+				E6AE0E691D189B9000C366F1 /* PostCommentCell.swift */,
+				E6AE0E631D189A8300C366F1 /* PostHeaderCell.swift */,
 				E6AE0E011D14B0C600C366F1 /* Profile.storyboard */,
 				97113F041D1718950015C17C /* ProfileViewController.swift */,
 				97113F081D1753D90015C17C /* EditProfileTableViewController.swift */,
@@ -322,11 +334,14 @@
 				97113F0B1D1754CD0015C17C /* PhotoCommentsViewController.swift in Sources */,
 				E6AE0E061D14B10600C366F1 /* Picture.swift in Sources */,
 				E6AE0DD31D14B02B00C366F1 /* ViewController.swift in Sources */,
+				E6AE0E641D189A8300C366F1 /* PostHeaderCell.swift in Sources */,
 				E6AE0E0E1D15A6FB00C366F1 /* HomeViewController.swift in Sources */,
+				E6AE0E6A1D189B9000C366F1 /* PostCommentCell.swift in Sources */,
 				E6AE0E101D15A71100C366F1 /* FeedTableViewController.swift in Sources */,
 				E6AE0DD91D14B02B00C366F1 /* Instagram.xcdatamodeld in Sources */,
 				DB96F4691D182DD300C84A8D /* FilterCells.swift in Sources */,
 				DB96F46D1D189BA100C84A8D /* AddPhotoDetailsViewController.swift in Sources */,
+				E6AE0E661D189B1900C366F1 /* PostImageCell.swift in Sources */,
 				E6AE0DD11D14B02B00C366F1 /* AppDelegate.swift in Sources */,
 				97113F091D1753D90015C17C /* EditProfileTableViewController.swift in Sources */,
 				E6AE0E0C1D14B13E00C366F1 /* Post.swift in Sources */,
@@ -335,6 +350,7 @@
 				97113F051D1718950015C17C /* ProfileViewController.swift in Sources */,
 				97113F0F1D1896710015C17C /* ProfileSettingsTableViewController.swift in Sources */,
 				E6AE0E0A1D14B12F00C366F1 /* Account.swift in Sources */,
+				E6AE0E681D189B3800C366F1 /* PostSubBarCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
