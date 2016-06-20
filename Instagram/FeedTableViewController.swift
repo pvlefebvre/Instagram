@@ -9,48 +9,95 @@
 import UIKit
 
 class FeedTableViewController: UITableViewController {
-    var postViews: [PostView] = []
-    var padding: CGFloat = 5.0
-    var width: CGFloat = 0.0
-    var height: CGFloat = 0.0
+
+    var table_data = Array<TableData>()
+    
+    struct TableData {
+        var section:String = ""
+        var data = Array<String>()
+        init(){}
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        width = tableView.frame.width
-        height = 420.0
-        print(height)
-        let newView1 = PostView(frame: CGRectMake(padding, padding, (width - padding * 2), (height - 2 * padding)))
-        let newView2 = PostView(frame: CGRectMake(padding, padding, (width - padding * 2), (height - 2 * padding)))
-        let newView3 = PostView(frame: CGRectMake(padding, padding, (width - padding * 2), (height - 2 * padding)))
-        postViews.append(newView1)
-        postViews.append(newView2)
-        postViews.append(newView3)
-        //xibPost = PostView.init(frame: CGRectMake(0, 0, 100, 100))
-        //xibPost.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        var new_element:TableData
+        new_element = TableData()
+        new_element.section = "Section 1"
+        new_element.data.append("Element 1")
+        new_element.data.append("Element 2")
+        new_element.data.append("Element 3")
+        table_data.append(new_element)
+        
+        new_element = TableData()
+        new_element.section = "Section 2"
+        new_element.data.append("Element 1")
+        new_element.data.append("Element 2")
+        new_element.data.append("Element 3")
+        table_data.append(new_element)
+        
+        new_element = TableData()
+        new_element.section = "Section 3"
+        new_element.data.append("Element 1")
+        new_element.data.append("Element 2")
+        new_element.data.append("Element 3")
+        table_data.append(new_element)
+        
+        new_element = TableData()
+        new_element.section = "Section 4"
+        new_element.data.append("Element 1")
+        new_element.data.append("Element 2")
+        new_element.data.append("Element 3")
+        table_data.append(new_element)
+        
+        new_element = TableData()
+        new_element.section = "Section 5"
+        new_element.data.append("Element 1")
+        new_element.data.append("Element 2")
+        new_element.data.append("Element 3")
+        table_data.append(new_element)
+        
+        new_element = TableData()
+        new_element.section = "Section 6"
+        new_element.data.append("Element 1")
+        new_element.data.append("Element 2")
+        new_element.data.append("Element 3")
+        table_data.append(new_element)
+        
+
     }
-
     // MARK: - Table view data source
-
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! PostHeaderCell
+        return headerCell
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return table_data.count
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postViews.count
+        return table_data[section].data.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellID", forIndexPath: indexPath)
-        //cell.textLabel?.text = arrayy[indexPath.row]
-        //xibPost.translatesAutoresizingMaskIntoConstraints = false
-        //cell.contentView.addSubview(xibPost)
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
-        cell.textLabel!.enabled = false
-        //cell.layoutMargins = UIEdgeInsetsZero
-        cell.contentView.addSubview(postViews[indexPath.row])
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
-        return 430.0
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("ImageCell", forIndexPath: indexPath) as! PostImageCell
+            return cell
+        } else if indexPath.row == 1{
+            let cell = tableView.dequeueReusableCellWithIdentifier("SubBarCell", forIndexPath: indexPath) as! PostSubBarCell
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! PostCommentCell
+            return cell
+        }
+
     }
     
 
