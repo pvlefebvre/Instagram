@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97113F051D1718950015C17C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97113F041D1718950015C17C /* ProfileViewController.swift */; };
+		97113F091D1753D90015C17C /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97113F081D1753D90015C17C /* EditProfileTableViewController.swift */; };
+		97113F0B1D1754CD0015C17C /* PhotoCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97113F0A1D1754CD0015C17C /* PhotoCommentsViewController.swift */; };
 		E6AE0DD11D14B02B00C366F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0DD01D14B02B00C366F1 /* AppDelegate.swift */; };
 		E6AE0DD31D14B02B00C366F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0DD21D14B02B00C366F1 /* ViewController.swift */; };
 		E6AE0DD61D14B02B00C366F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6AE0DD41D14B02B00C366F1 /* Main.storyboard */; };
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		97113F041D1718950015C17C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../ProfileViewController.swift; sourceTree = "<group>"; };
+		97113F081D1753D90015C17C /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		97113F0A1D1754CD0015C17C /* PhotoCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCommentsViewController.swift; sourceTree = "<group>"; };
 		E6AE0DCD1D14B02B00C366F1 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6AE0DD01D14B02B00C366F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6AE0DD21D14B02B00C366F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +121,9 @@
 				E6AE0DD21D14B02B00C366F1 /* ViewController.swift */,
 				E6AE0DD41D14B02B00C366F1 /* Main.storyboard */,
 				E6AE0E011D14B0C600C366F1 /* Profile.storyboard */,
+				97113F041D1718950015C17C /* ProfileViewController.swift */,
+				97113F081D1753D90015C17C /* EditProfileTableViewController.swift */,
+				97113F0A1D1754CD0015C17C /* PhotoCommentsViewController.swift */,
 				E6AE0E031D14B0EC00C366F1 /* Picture.storyboard */,
 				E6AE0E051D14B10600C366F1 /* Picture.swift */,
 				E6AE0E071D14B11500C366F1 /* Comment.swift */,
@@ -280,11 +289,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6AE0E081D14B11500C366F1 /* Comment.swift in Sources */,
+				97113F0B1D1754CD0015C17C /* PhotoCommentsViewController.swift in Sources */,
 				E6AE0E061D14B10600C366F1 /* Picture.swift in Sources */,
 				E6AE0DD31D14B02B00C366F1 /* ViewController.swift in Sources */,
 				E6AE0DD91D14B02B00C366F1 /* Instagram.xcdatamodeld in Sources */,
 				E6AE0DD11D14B02B00C366F1 /* AppDelegate.swift in Sources */,
+				97113F091D1753D90015C17C /* EditProfileTableViewController.swift in Sources */,
 				E6AE0E0C1D14B13E00C366F1 /* Post.swift in Sources */,
+				97113F051D1718950015C17C /* ProfileViewController.swift in Sources */,
 				E6AE0E0A1D14B12F00C366F1 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +522,7 @@
 				E6AE0DFA1D14B02C00C366F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E6AE0DFB1D14B02C00C366F1 /* Build configuration list for PBXNativeTarget "InstagramTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +531,7 @@
 				E6AE0DFD1D14B02C00C366F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E6AE0DFE1D14B02C00C366F1 /* Build configuration list for PBXNativeTarget "InstagramUITests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +540,7 @@
 				E6AE0E001D14B02C00C366F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
