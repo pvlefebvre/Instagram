@@ -9,12 +9,14 @@
 import UIKit
 
 class Post: NSObject {
-    let picture: Picture?
+    
     let comments: [Comment]? = nil
     let account: Account?
+    let caption: String? = nil
+    let location: String? = nil
+    let image: UIImage? = nil
     
-    init(picture: Picture, account: Account) {
-        self.picture = picture
+    init(account: Account) {
         self.account = account
     }
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB96F4651D17703E00C84A8D /* PhotoTakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB96F4641D17703E00C84A8D /* PhotoTakeViewController.swift */; };
+		DB96F4691D182DD300C84A8D /* FilterCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB96F4681D182DD300C84A8D /* FilterCells.swift */; };
+		DB96F46B1D18571500C84A8D /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB96F46A1D18571500C84A8D /* FilterCollectionViewCell.swift */; };
+		DB96F46D1D189BA100C84A8D /* AddPhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB96F46C1D189BA100C84A8D /* AddPhotoDetailsViewController.swift */; };
 		E6AE0DD11D14B02B00C366F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0DD01D14B02B00C366F1 /* AppDelegate.swift */; };
 		E6AE0DD31D14B02B00C366F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0DD21D14B02B00C366F1 /* ViewController.swift */; };
 		E6AE0DD61D14B02B00C366F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6AE0DD41D14B02B00C366F1 /* Main.storyboard */; };
@@ -41,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB96F4641D17703E00C84A8D /* PhotoTakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakeViewController.swift; sourceTree = "<group>"; };
+		DB96F4681D182DD300C84A8D /* FilterCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterCells.swift; path = ../FilterCells.swift; sourceTree = "<group>"; };
+		DB96F46A1D18571500C84A8D /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB96F46C1D189BA100C84A8D /* AddPhotoDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotoDetailsViewController.swift; sourceTree = "<group>"; };
 		E6AE0DCD1D14B02B00C366F1 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6AE0DD01D14B02B00C366F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6AE0DD21D14B02B00C366F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +128,10 @@
 				E6AE0E071D14B11500C366F1 /* Comment.swift */,
 				E6AE0E091D14B12F00C366F1 /* Account.swift */,
 				E6AE0E0B1D14B13E00C366F1 /* Post.swift */,
+				DB96F4641D17703E00C84A8D /* PhotoTakeViewController.swift */,
+				DB96F4681D182DD300C84A8D /* FilterCells.swift */,
+				DB96F46A1D18571500C84A8D /* FilterCollectionViewCell.swift */,
+				DB96F46C1D189BA100C84A8D /* AddPhotoDetailsViewController.swift */,
 				E6AE0DDA1D14B02B00C366F1 /* Assets.xcassets */,
 				E6AE0DDC1D14B02B00C366F1 /* LaunchScreen.storyboard */,
 				E6AE0DDF1D14B02B00C366F1 /* Info.plist */,
@@ -214,6 +226,7 @@
 				TargetAttributes = {
 					E6AE0DCC1D14B02B00C366F1 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = VCHC46W3FB;
 					};
 					E6AE0DE31D14B02C00C366F1 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -279,12 +292,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB96F46B1D18571500C84A8D /* FilterCollectionViewCell.swift in Sources */,
 				E6AE0E081D14B11500C366F1 /* Comment.swift in Sources */,
 				E6AE0E061D14B10600C366F1 /* Picture.swift in Sources */,
 				E6AE0DD31D14B02B00C366F1 /* ViewController.swift in Sources */,
 				E6AE0DD91D14B02B00C366F1 /* Instagram.xcdatamodeld in Sources */,
+				DB96F4691D182DD300C84A8D /* FilterCells.swift in Sources */,
+				DB96F46D1D189BA100C84A8D /* AddPhotoDetailsViewController.swift in Sources */,
 				E6AE0DD11D14B02B00C366F1 /* AppDelegate.swift in Sources */,
 				E6AE0E0C1D14B13E00C366F1 /* Post.swift in Sources */,
+				DB96F4651D17703E00C84A8D /* PhotoTakeViewController.swift in Sources */,
 				E6AE0E0A1D14B12F00C366F1 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,10 +444,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mobilemakers.Instagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -438,10 +458,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mobilemakers.Instagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -510,6 +533,7 @@
 				E6AE0DFA1D14B02C00C366F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E6AE0DFB1D14B02C00C366F1 /* Build configuration list for PBXNativeTarget "InstagramTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +542,7 @@
 				E6AE0DFD1D14B02C00C366F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E6AE0DFE1D14B02C00C366F1 /* Build configuration list for PBXNativeTarget "InstagramUITests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +551,7 @@
 				E6AE0E001D14B02C00C366F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
