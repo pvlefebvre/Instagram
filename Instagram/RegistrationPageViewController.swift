@@ -8,9 +8,21 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseStorage
 
-class RegistrationPageViewController: UIViewController {
+struct instaUser {
+    var username: NSString
+    var email: NSString
+    var profileDescription: NSString
+    var profilePicture: NSString
+    var realName: NSString
+}
 
+class RegistrationPageViewController: UIViewController, UITextFieldDelegate {
+
+    let rootRefDB = FIRDatabase.database().reference()
+    let rootRefStorage = FIRStorage.storage().reference()
 
     @IBOutlet weak var confirmPasswordField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -21,6 +33,12 @@ class RegistrationPageViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     @IBAction func registerDidTouch(sender: AnyObject) {
         if usernameField.text != nil &&
             emailField.text != nil &&
@@ -31,6 +49,19 @@ class RegistrationPageViewController: UIViewController {
             if passwordField.text == confirmPasswordField.text {
                 FIRAuth.auth()?.createUserWithEmail(emailField.text!, password: passwordField.text!, completion: { (user: FIRUser?, error: NSError?) in
                     if error == nil {
+                        
+                        let database = self.rootRefDB.child("users")
+                        
+                        let cUser = instaUser(username: self.usernameField.text!,
+                            email: user!.email!,
+                            profileDescription: "",
+                            profilePicture: "",
+                            realName: self.realNameField.text!)
+
+                        database.child(user!.uid).setValue(["username": cUser.username,
+                            "email": cUser.email, "profileDescription": cUser.profileDescription,
+                            "profilePicture": cUser.profilePicture, "realName": cUser.realName])
+                        
                         self.performSegueWithIdentifier("createUserSegue", sender: self)
                     } else {
                         print("ERROR!!!!: \(error)")
