@@ -7,50 +7,39 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationPageViewController: UIViewController {
 
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var nameTextField: UITextField!
-//    @IBOutlet weak var usernameTextField: UITextField!
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//    }
-//    @IBAction func registerButton(sender: AnyObject) {
-//        let userEmail = emailTextField.text
-//        let userPassword = passwordTextField.text
-//        let userName = nameTextField.text
-//        let confirmPassword = confirmPasswordTextField.text
-//        let userUsername = usernameTextField.text
-//        if(userEmail?.isEmpty || userPassword?.isEmpty || userName?.isEmpty || confirmPassword || (userUsername?.isEmpty){
-//            
-////        displayAlertMessage("Fill em' all out LADY!")
-////        } else {
-////        nil
-////        }
-////        
-////        if userPassword != confirmPassword {
-////        displayAlertMessage("Passwords = No Bueno, Again!")
-////    }
-////        func displayAlertMessage(userMessage:String)
-////        {
-////            
-////            var alert = UIAlertController(title: "Stahp", message: "Why you no do!", preferredStyle: UIAlertControllerStyle.Alert)
-////        
-////            alert.addTextFieldWithConfigurationHandler(nil)
-////            alert.addAction(UIAlertAction(title: "Welp", style: UIAlertActionStyle.Cancel, handler: nil))
-////            alert.addAction(UIAlertAction(title: "Ya Done", style: UIAlertActionStyle.Default, handler: nil))
-////        
-////            self.presentViewController(alertController, animated: true, completion:nil)
-////        
-////        }
-////        
-////    }
-////
-////    
-////
-////
+
+    @IBOutlet weak var confirmPasswordField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var realNameField: UITextField!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+    @IBAction func registerDidTouch(sender: AnyObject) {
+        if usernameField.text != nil &&
+            emailField.text != nil &&
+            realNameField.text != nil &&
+            passwordField.text != nil &&
+            confirmPasswordField.text != nil{
+            
+            if passwordField.text == confirmPasswordField.text {
+                FIRAuth.auth()?.createUserWithEmail(emailField.text!, password: passwordField.text!, completion: { (user: FIRUser?, error: NSError?) in
+                    if error == nil {
+                        self.performSegueWithIdentifier("createUserSegue", sender: self)
+                    } else {
+                        print("ERROR!!!!: \(error)")
+                    }
+                    
+                    
+                })
+            }
+        }
+    }
+
 }

@@ -57,7 +57,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbC-n8-7bY">
                                                     <rect key="frame" x="8" y="0.5" width="111" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -84,8 +84,19 @@
                                     <outlet property="delegate" destination="2ce-2J-uIl" id="wxa-I9-GO6"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hm-zA-dFI">
+                                <rect key="frame" x="190" y="488" width="77" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="V6a-BN-BxC"/>
+                                    <constraint firstAttribute="width" constant="77" id="Wo8-2Z-diV"/>
+                                </constraints>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="onTakePhotoButtonPressed:" destination="2ce-2J-uIl" eventType="touchUpInside" id="pRW-jk-fVk"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXc-Av-Wdb">
-                                <rect key="frame" x="517" y="550" width="49" height="30"/>
+                                <rect key="frame" x="399" y="488" width="49" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="gLU-IF-hn9"/>
                                     <constraint firstAttribute="height" constant="30" id="ywg-1k-G8A"/>
@@ -97,26 +108,15 @@
                                     <segue destination="06b-Bt-8ab" kind="show" identifier="ToDetailAddScreen" id="xuE-X7-OTV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hm-zA-dFI">
-                                <rect key="frame" x="20" y="550" width="77" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="V6a-BN-BxC"/>
-                                    <constraint firstAttribute="width" constant="77" id="Wo8-2Z-diV"/>
-                                </constraints>
-                                <state key="normal" title="Take Photo"/>
-                                <connections>
-                                    <action selector="onTakePhotoButtonPressed:" destination="2ce-2J-uIl" eventType="touchUpInside" id="pRW-jk-fVk"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="CXc-Av-Wdb" secondAttribute="trailing" constant="34" id="1Qu-gf-SMF"/>
+                            <constraint firstAttribute="trailing" secondItem="CXc-Av-Wdb" secondAttribute="trailing" constant="152" id="1Qu-gf-SMF"/>
                             <constraint firstItem="6hm-zA-dFI" firstAttribute="top" secondItem="yRx-ZT-2hf" secondAttribute="bottom" constant="8" id="42p-R3-Tzv"/>
                             <constraint firstItem="n88-eB-dBQ" firstAttribute="top" secondItem="6hm-zA-dFI" secondAttribute="bottom" constant="20" id="JgM-KA-LU2"/>
-                            <constraint firstItem="n88-eB-dBQ" firstAttribute="top" secondItem="CXc-Av-Wdb" secondAttribute="bottom" constant="20" id="P98-45-ben"/>
+                            <constraint firstItem="n88-eB-dBQ" firstAttribute="top" secondItem="CXc-Av-Wdb" secondAttribute="bottom" constant="33" id="P98-45-ben"/>
                             <constraint firstAttribute="trailing" secondItem="5Q9-ha-JMs" secondAttribute="trailing" constant="5" id="QfV-JN-SQV"/>
-                            <constraint firstItem="n88-eB-dBQ" firstAttribute="top" secondItem="6hm-zA-dFI" secondAttribute="bottom" constant="20" id="URb-CD-LyU"/>
+                            <constraint firstItem="n88-eB-dBQ" firstAttribute="top" secondItem="6hm-zA-dFI" secondAttribute="bottom" constant="33" id="URb-CD-LyU"/>
                             <constraint firstItem="5Q9-ha-JMs" firstAttribute="top" secondItem="UBb-dz-Yeg" secondAttribute="bottom" id="Uef-aK-Fii"/>
                             <constraint firstAttribute="trailing" secondItem="yRx-ZT-2hf" secondAttribute="trailing" id="bs3-Mc-Rvq"/>
                             <constraint firstItem="yRx-ZT-2hf" firstAttribute="leading" secondItem="QOv-IN-RYf" secondAttribute="leading" id="fI4-OS-T4D"/>
@@ -124,7 +124,7 @@
                             <constraint firstItem="5Q9-ha-JMs" firstAttribute="centerX" secondItem="QOv-IN-RYf" secondAttribute="centerX" id="jge-Uw-irW"/>
                             <constraint firstItem="6hm-zA-dFI" firstAttribute="centerX" secondItem="QOv-IN-RYf" secondAttribute="centerX" constant="-241.5" id="q1O-hA-6DS"/>
                             <constraint firstItem="5Q9-ha-JMs" firstAttribute="leading" secondItem="QOv-IN-RYf" secondAttribute="leading" id="qTP-56-1Os"/>
-                            <constraint firstItem="6hm-zA-dFI" firstAttribute="leading" secondItem="QOv-IN-RYf" secondAttribute="leading" constant="20" id="s8f-ir-k8M"/>
+                            <constraint firstItem="6hm-zA-dFI" firstAttribute="leading" secondItem="QOv-IN-RYf" secondAttribute="leading" constant="190" id="s8f-ir-k8M"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -135,6 +135,8 @@
                             </mask>
                         </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="8fo-sJ-qx7"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="filtersCollectionView" destination="yRx-ZT-2hf" id="pkK-gB-ho7"/>
                         <outlet property="imageView" destination="5Q9-ha-JMs" id="ldI-sx-QXC"/>
