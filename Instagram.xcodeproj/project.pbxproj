@@ -21,6 +21,8 @@
 		DB96F46B1D18571500C84A8D /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB96F46A1D18571500C84A8D /* FilterCollectionViewCell.swift */; };
 		DB96F46D1D189BA100C84A8D /* AddPhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB96F46C1D189BA100C84A8D /* AddPhotoDetailsViewController.swift */; };
 		E6752B531D1AD7720049E276 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6752B521D1AD7720049E276 /* LoginViewController.swift */; };
+		E6752B571D1B5E2E0049E276 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6752B561D1B5E2E0049E276 /* SearchViewController.swift */; };
+		E6752B591D1B94DE0049E276 /* FollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6752B581D1B94DE0049E276 /* FollowTableViewCell.swift */; };
 		E6AE0DD11D14B02B00C366F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0DD01D14B02B00C366F1 /* AppDelegate.swift */; };
 		E6AE0DD31D14B02B00C366F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE0DD21D14B02B00C366F1 /* ViewController.swift */; };
 		E6AE0DD61D14B02B00C366F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6AE0DD41D14B02B00C366F1 /* Main.storyboard */; };
@@ -84,6 +86,8 @@
 		DB96F46A1D18571500C84A8D /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB96F46C1D189BA100C84A8D /* AddPhotoDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotoDetailsViewController.swift; sourceTree = "<group>"; };
 		E6752B521D1AD7720049E276 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E6752B561D1B5E2E0049E276 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E6752B581D1B94DE0049E276 /* FollowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowTableViewCell.swift; sourceTree = "<group>"; };
 		E6AE0DCD1D14B02B00C366F1 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6AE0DD01D14B02B00C366F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6AE0DD21D14B02B00C366F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 				E6AE0E131D160FCE00C366F1 /* PostView.swift */,
 				E6AE0E0F1D15A71100C366F1 /* FeedTableViewController.swift */,
 				E6AE0DD41D14B02B00C366F1 /* Main.storyboard */,
+				E6752B581D1B94DE0049E276 /* FollowTableViewCell.swift */,
+				E6752B561D1B5E2E0049E276 /* SearchViewController.swift */,
 				E6AE0E651D189B1900C366F1 /* PostImageCell.swift */,
 				E6AE0E671D189B3800C366F1 /* PostSubBarCell.swift */,
 				E6AE0E691D189B9000C366F1 /* PostCommentCell.swift */,
@@ -516,6 +522,7 @@
 			files = (
 				DB96F46B1D18571500C84A8D /* FilterCollectionViewCell.swift in Sources */,
 				E6AE0E081D14B11500C366F1 /* Comment.swift in Sources */,
+				E6752B591D1B94DE0049E276 /* FollowTableViewCell.swift in Sources */,
 				97113F0B1D1754CD0015C17C /* PhotoCommentsViewController.swift in Sources */,
 				E6AE0E061D14B10600C366F1 /* Picture.swift in Sources */,
 				E6AE0DD31D14B02B00C366F1 /* ViewController.swift in Sources */,
@@ -529,6 +536,7 @@
 				E6752B531D1AD7720049E276 /* LoginViewController.swift in Sources */,
 				E6AE0E661D189B1900C366F1 /* PostImageCell.swift in Sources */,
 				97113F151D199B6B0015C17C /* RegistrationPageViewController.swift in Sources */,
+				E6752B571D1B5E2E0049E276 /* SearchViewController.swift in Sources */,
 				E6AE0DD11D14B02B00C366F1 /* AppDelegate.swift in Sources */,
 				97113F091D1753D90015C17C /* EditProfileTableViewController.swift in Sources */,
 				E6AE0E0C1D14B13E00C366F1 /* Post.swift in Sources */,

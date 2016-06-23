@@ -10,6 +10,7 @@ import UIKit
 
 class PostCommentCell: UITableViewCell {
 
+    @IBOutlet weak var commentsTextView: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

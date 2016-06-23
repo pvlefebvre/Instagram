@@ -10,6 +10,7 @@ import UIKit
 
 class PostSubBarCell: UITableViewCell {
 
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +20,11 @@ class PostSubBarCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+
+    @IBAction func likeDidTouch(sender: UIButton) {
+    }
+    @IBAction func commentDidTouch(sender: UIButton) {
     }
 
 }

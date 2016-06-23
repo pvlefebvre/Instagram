@@ -10,9 +10,11 @@ import UIKit
 
 class PostHeaderCell: UITableViewCell {
 
+    @IBOutlet weak var profileName: UIButton!
+    @IBOutlet weak var profilePicture: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

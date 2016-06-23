@@ -7,62 +7,43 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseStorage
+
+struct PostItem {
+    var postID: NSString
+    var caption: NSString
+    var location: NSString
+    var likes: NSNumber
+    var pictureID: NSString
+    var userID: NSString
+    var comments: Array<NSString>
+
+}
 
 class FeedTableViewController: UITableViewController {
 
-    var table_data = Array<TableData>()
-    
-    struct TableData {
-        var section:String = ""
-        var data = Array<String>()
-        init(){}
-    }
-    
+    var posts = Array<PostItem>()
+    let max = 10
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var new_element:TableData
-        new_element = TableData()
-        new_element.section = "Section 1"
-        new_element.data.append("Element 1")
-        new_element.data.append("Element 2")
-        new_element.data.append("Element 3")
-        table_data.append(new_element)
+//        let userID = FIRAuth.auth()?.currentUser?.uid
+//        ref.child("posts").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+//            // Get user value
+//            let username = snapshot.value!["username"] as! String
+//            let user = User.init(username: username)
+//            
+//            // ...
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+        var new_element:PostItem
+        new_element = PostItem(postID: "123",caption: "132",location: "321",likes: 2,pictureID: "1232",userID: "1323", comments: ["12323","1232323","!@#@!#"])
+        posts.append(new_element)
         
-        new_element = TableData()
-        new_element.section = "Section 2"
-        new_element.data.append("Element 1")
-        new_element.data.append("Element 2")
-        new_element.data.append("Element 3")
-        table_data.append(new_element)
-        
-        new_element = TableData()
-        new_element.section = "Section 3"
-        new_element.data.append("Element 1")
-        new_element.data.append("Element 2")
-        new_element.data.append("Element 3")
-        table_data.append(new_element)
-        
-        new_element = TableData()
-        new_element.section = "Section 4"
-        new_element.data.append("Element 1")
-        new_element.data.append("Element 2")
-        new_element.data.append("Element 3")
-        table_data.append(new_element)
-        
-        new_element = TableData()
-        new_element.section = "Section 5"
-        new_element.data.append("Element 1")
-        new_element.data.append("Element 2")
-        new_element.data.append("Element 3")
-        table_data.append(new_element)
-        
-        new_element = TableData()
-        new_element.section = "Section 6"
-        new_element.data.append("Element 1")
-        new_element.data.append("Element 2")
-        new_element.data.append("Element 3")
-        table_data.append(new_element)
         
 
     }
@@ -70,6 +51,7 @@ class FeedTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! PostHeaderCell
+        headerCell.profileName.setTitle(FIRAuth.auth()?.currentUser?.email!, forState: UIControlState.Normal)
         return headerCell
     }
     
@@ -78,17 +60,28 @@ class FeedTableViewController: UITableViewController {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return table_data.count
+        return posts.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return table_data[section].data.count
+        return 3
     }
 
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 250.0
+        } else if indexPath.row == 1{
+            return 44.0
+        } else {
+            return 100.0
+        }
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("ImageCell", forIndexPath: indexPath) as! PostImageCell
+            cell.postImage.image = UIImage.init(named: "example1")
+            //cell.postImage.contentMode = UIViewContentMode.ScaleAspectFill
             return cell
         } else if indexPath.row == 1{
             let cell = tableView.dequeueReusableCellWithIdentifier("SubBarCell", forIndexPath: indexPath) as! PostSubBarCell
