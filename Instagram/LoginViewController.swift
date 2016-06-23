@@ -9,13 +9,19 @@
 import UIKit
 import Firebase
 
+var ref = FIRDatabaseReference().database.reference()
+var currentUser: FIRUser?
+
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     @IBAction func loginDidTouch(sender: AnyObject) {
@@ -23,12 +29,20 @@ class LoginViewController: UIViewController {
             FIRAuth.auth()?.signInWithEmail(emailField.text!, password: passwordField.text!, completion: { (user: FIRUser?, error: NSError?) in
                 if error == nil {
                     self.performSegueWithIdentifier("loginSegue", sender: self)
+                    currentUser = user
+                    print(currentUser)
+                    let currentUserID = currentUser.child("UserID")
                 } else {
                     print("ERROR!!!!: \(error)")
                 }
             })
         }
     }
+    
 
-    @IBAction func unwindDidTouch(sender: UIStoryboardSegue) {}
+    @IBAction func unwindDidTouch(sender: UIStoryboardSegue) {
+    }
+    
+
 }
+

@@ -66,8 +66,7 @@ class RegistrationPageViewController: UIViewController, UITextFieldDelegate {
                     } else {
                         print("ERROR!!!!: \(error)")
                     }
-                    
-                    
+                  
                 })
             }
         }

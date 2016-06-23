@@ -326,6 +326,7 @@
 					E6AE0DCC1D14B02B00C366F1 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = VCHC46W3FB;
+						DevelopmentTeam = U6R7NJL8LW;
 					};
 					E6AE0DE31D14B02C00C366F1 = {
 						CreatedOnToolsVersion = 7.3.1;
