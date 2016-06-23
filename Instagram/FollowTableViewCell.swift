@@ -30,7 +30,15 @@ class FollowTableViewCell: UITableViewCell {
         if let user = FIRAuth.auth()?.currentUser {
             let ref = FIRDatabase.database().reference()
             let name = (usernameButton.titleLabel?.text)!
-            ref.child("users/\(user.uid)/following").setValue(["\(self.userID!)" : name])
+            //ref.child("users/\(user.uid)/following").setValue(["\(self.userID!)" : name])
+            
+            ref.child("users/\(user.uid)/following").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                let usernamey = snapshot.value!
+                usernamey.setObject(name, forKey: "\(self.userID!)")
+                ref.child("users/\(user.uid)/following").setValue(usernamey)
+            }) { (error) in
+                print(error.localizedDescription)
+            }
             
         } else {
             print("no")

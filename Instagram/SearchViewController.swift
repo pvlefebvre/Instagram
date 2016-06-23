@@ -32,9 +32,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             // Get user value
             let stuff3 = snapshot.value! as! [String : AnyObject]
             for (keyt, valuest) in stuff3 {
-                let namet = valuest["username"] as! String
-                let item = UserItem(username: namet, profilePicture: "", userID: keyt)
-                self.users.append(item)
+                if keyt != FIRAuth.auth()?.currentUser?.uid {
+                    let namet = valuest["username"] as! String
+                    let item = UserItem(username: namet, profilePicture: "", userID: keyt)
+                    self.users.append(item)
+                }
             }
 
         }) { (error) in
