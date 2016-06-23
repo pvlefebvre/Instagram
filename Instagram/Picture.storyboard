@@ -85,7 +85,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hm-zA-dFI">
-                                <rect key="frame" x="190" y="488" width="77" height="30"/>
+                                <rect key="frame" x="50" y="488" width="77" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="V6a-BN-BxC"/>
                                     <constraint firstAttribute="width" constant="77" id="Wo8-2Z-diV"/>
@@ -96,7 +96,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXc-Av-Wdb">
-                                <rect key="frame" x="399" y="488" width="49" height="30"/>
+                                <rect key="frame" x="501" y="488" width="49" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="gLU-IF-hn9"/>
                                     <constraint firstAttribute="height" constant="30" id="ywg-1k-G8A"/>
@@ -111,7 +111,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="CXc-Av-Wdb" secondAttribute="trailing" constant="152" id="1Qu-gf-SMF"/>
+                            <constraint firstAttribute="trailing" secondItem="CXc-Av-Wdb" secondAttribute="trailing" constant="50" id="1Qu-gf-SMF"/>
                             <constraint firstItem="6hm-zA-dFI" firstAttribute="top" secondItem="yRx-ZT-2hf" secondAttribute="bottom" constant="8" id="42p-R3-Tzv"/>
                             <constraint firstItem="n88-eB-dBQ" firstAttribute="top" secondItem="6hm-zA-dFI" secondAttribute="bottom" constant="20" id="JgM-KA-LU2"/>
                             <constraint firstItem="n88-eB-dBQ" firstAttribute="top" secondItem="CXc-Av-Wdb" secondAttribute="bottom" constant="33" id="P98-45-ben"/>
@@ -124,7 +124,7 @@
                             <constraint firstItem="5Q9-ha-JMs" firstAttribute="centerX" secondItem="QOv-IN-RYf" secondAttribute="centerX" id="jge-Uw-irW"/>
                             <constraint firstItem="6hm-zA-dFI" firstAttribute="centerX" secondItem="QOv-IN-RYf" secondAttribute="centerX" constant="-241.5" id="q1O-hA-6DS"/>
                             <constraint firstItem="5Q9-ha-JMs" firstAttribute="leading" secondItem="QOv-IN-RYf" secondAttribute="leading" id="qTP-56-1Os"/>
-                            <constraint firstItem="6hm-zA-dFI" firstAttribute="leading" secondItem="QOv-IN-RYf" secondAttribute="leading" constant="190" id="s8f-ir-k8M"/>
+                            <constraint firstItem="6hm-zA-dFI" firstAttribute="leading" secondItem="QOv-IN-RYf" secondAttribute="leading" constant="50" id="s8f-ir-k8M"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -187,6 +187,7 @@
                                 <state key="normal" title="Post"/>
                                 <connections>
                                     <action selector="onPostButtonPressed:" destination="06b-Bt-8ab" eventType="touchUpInside" id="7ne-Ol-OOs"/>
+                                    <segue destination="Kgr-ue-yy0" kind="show" id="Tdj-Kt-kDW"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o1e-gU-p4R">
@@ -226,6 +227,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="586-z5-mtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1340" y="1208"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="XeO-LH-6wf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="Kgr-ue-yy0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axC-3r-fYW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1761" y="1208"/>
         </scene>
     </scenes>
 </document>
