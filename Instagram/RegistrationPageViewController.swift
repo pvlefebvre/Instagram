@@ -61,7 +61,7 @@ class RegistrationPageViewController: UIViewController, UITextFieldDelegate {
                         database.child(user!.uid).setValue(["username": cUser.username,
                             "email": cUser.email, "profileDescription": cUser.profileDescription,
                             "profilePicture": cUser.profilePicture, "realName": cUser.realName])
-                        
+        
                         self.performSegueWithIdentifier("createUserSegue", sender: self)
                     } else {
                         print("ERROR!!!!: \(error)")

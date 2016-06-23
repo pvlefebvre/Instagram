@@ -18,14 +18,16 @@ class Post: NSObject {
     var image: NSString
     var likeCount: NSNumber = 0
     var objectId: String? = nil
+    var username: NSString
 //    var dateString: NSString = ""
     
-    init(userID: NSString, caption: NSString, image: NSString, location: NSString) {
+    init(userID: NSString, caption: NSString, image: NSString, location: NSString, username: NSString) {
         
         self.caption = caption
         self.image = image
         self.location = location
         self.userID = userID
+        self.username = username
 //        self.likeCount = 0
 //        self.objectId = nil
         
