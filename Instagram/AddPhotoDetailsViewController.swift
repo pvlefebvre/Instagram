@@ -52,10 +52,6 @@ class AddPhotoDetailsViewController: UIViewController, UITextViewDelegate, UITex
                 //                let valueDict = users
                 self.currentUsername = users.valueForKey("\(self.user!)")!.valueForKey("username")! as? String
                 
-                //                        if value as! String == self.user! {
-                //                            let username = valueDict.valueForKey("username")! as! String
-                //                            self.currentUsername = username
-                //                        }
             }
         }
     }

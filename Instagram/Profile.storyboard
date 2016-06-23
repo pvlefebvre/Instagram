@@ -162,15 +162,27 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfilePhotoCell" id="lQT-xb-J0C">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfilePhotoCell" id="lQT-xb-J0C" customClass="ProfileGridCells" customModule="Instagram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OY2-FH-4qC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="OY2-FH-4qC" secondAttribute="trailing" id="E71-Kb-V4v"/>
+                                            <constraint firstItem="OY2-FH-4qC" firstAttribute="top" secondItem="lQT-xb-J0C" secondAttribute="top" id="fi3-LR-xu3"/>
+                                            <constraint firstItem="OY2-FH-4qC" firstAttribute="leading" secondItem="lQT-xb-J0C" secondAttribute="leading" id="ljD-y2-eS7"/>
+                                            <constraint firstAttribute="bottom" secondItem="OY2-FH-4qC" secondAttribute="bottom" id="mOn-fF-l1L"/>
+                                        </constraints>
                                         <connections>
+                                            <outlet property="profileGridImageView" destination="OY2-FH-4qC" id="bqh-GG-Jz8"/>
                                             <segue destination="SfS-lc-Pxs" kind="show" id="5yu-9z-BV0"/>
                                         </connections>
                                     </collectionViewCell>
