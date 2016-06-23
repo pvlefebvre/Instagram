@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" id="Rvq-5G-mjw" customClass="PostHeaderCell" customModule="Instagram" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" id="Rvq-5G-mjw" customClass="PostHeaderCell" customModule="Instagram" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="580" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rvq-5G-mjw" id="nOd-HF-MMr">
@@ -77,7 +77,7 @@
                                     <outlet property="postImage" destination="t6Z-2z-Bbh" id="0NC-H2-tCM"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubBarCell" id="vB8-o5-Wxp" customClass="PostSubBarCell" customModule="Instagram" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubBarCell" id="vB8-o5-Wxp" customClass="PostSubBarCell" customModule="Instagram" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="322" width="580" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vB8-o5-Wxp" id="ays-49-hAE">
@@ -86,10 +86,11 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dln-xk-1ec">
                                             <rect key="frame" x="10" y="7" width="35" height="30"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
-                                                <action selector="likeDidTouch:" destination="vB8-o5-Wxp" eventType="touchUpInside" id="2fB-L9-R6a"/>
+                                                <action selector="likeDidTouch:" destination="vB8-o5-Wxp" eventType="touchUpInside" id="N8L-mP-khb"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Enj-9V-7tx">

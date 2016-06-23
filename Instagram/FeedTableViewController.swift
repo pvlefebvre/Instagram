@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseStorage
+import Kingfisher
 
 struct PostItem {
     var postID: NSString
@@ -18,6 +19,7 @@ struct PostItem {
     var likes: NSNumber
     var pictureID: NSString
     var userID: NSString
+    var username: NSString
     var comments: Array<NSString>
 
 }
@@ -26,32 +28,36 @@ class FeedTableViewController: UITableViewController {
 
     var posts = Array<PostItem>()
     let max = 10
-
+    let rootRefDB = FIRDatabase.database().reference()
+    let rootRefStorage = FIRStorage.storage().reference()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let userID = FIRAuth.auth()?.currentUser?.uid
-//        ref.child("posts").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-//            // Get user value
-//            let username = snapshot.value!["username"] as! String
-//            let user = User.init(username: username)
-//            
-//            // ...
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
-        var new_element:PostItem
-        new_element = PostItem(postID: "123",caption: "132",location: "321",likes: 2,pictureID: "1232",userID: "1323", comments: ["12323","1232323","!@#@!#"])
-        posts.append(new_element)
+        //////////////////////////////////////////
         
-        
-
+        rootRefDB.observeSingleEventOfType(.Value) { (snap: FIRDataSnapshot) in
+            //self.newArray.removeAll()
+            let receivedPosts = (snap.value as? NSDictionary)!
+            if let post = receivedPosts["posts"] as? NSDictionary {
+                    for (key, value) in post {
+                        let finalPost = value as? NSDictionary
+                        var new_element:PostItem
+                        new_element = PostItem(postID: "\(key)",caption: "\((finalPost!["caption"])!)",location: "\((finalPost!["location"])!)",likes: finalPost!["likes"] as! NSNumber,pictureID: "\((finalPost!["imageString"])!)",userID: "\((finalPost!["userID"])!)", username: "\((finalPost!["username"])!)", comments: ["12323","1232323","!@#@!#"])
+                        
+                        
+                      self.posts.append(new_element)
+                    }
+                dispatch_async(dispatch_get_main_queue(), { 
+                    self.tableView.reloadData()
+                })
+            }
+        }
     }
     // MARK: - Table view data source
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! PostHeaderCell
-        headerCell.profileName.setTitle(FIRAuth.auth()?.currentUser?.email!, forState: UIControlState.Normal)
+        headerCell.profileName.setTitle(posts[section].username as String, forState: UIControlState.Normal)
         return headerCell
     }
     
@@ -78,13 +84,14 @@ class FeedTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let item = posts[indexPath.section]
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("ImageCell", forIndexPath: indexPath) as! PostImageCell
-            cell.postImage.image = UIImage.init(named: "example1")
-            //cell.postImage.contentMode = UIViewContentMode.ScaleAspectFill
+            cell.postImage.kf_setImageWithURL(NSURL(string: "\(item.pictureID)")!, placeholderImage: nil)
             return cell
         } else if indexPath.row == 1{
             let cell = tableView.dequeueReusableCellWithIdentifier("SubBarCell", forIndexPath: indexPath) as! PostSubBarCell
+            cell.postID = posts[indexPath.section].postID as String
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! PostCommentCell
@@ -92,6 +99,8 @@ class FeedTableViewController: UITableViewController {
         }
 
     }
+
+    
     
 
     /*
