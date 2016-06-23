@@ -7,15 +7,32 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
-class AddPhotoDetailsViewController: UIViewController, UITextViewDelegate {
+//struct NewPost {
+//    var userID: NSString
+//    var caption: NSString
+//    var location: NSString
+//    var image: NSString
+//    var likeCount: NSNumber = 0
+//    optional var objectID: NSString
+//}
+
+class AddPhotoDetailsViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var locationTextView: UITextView!
     
-    var postImage: UIImage?
+    let rootRefDB = FIRDatabase.database().reference() //reference to the root database
+    let rootRefStorage = FIRStorage.storage().reference()
+    let user = FIRAuth.auth()?.currentUser?.uid
     
+    var postImage: UIImage?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +43,7 @@ class AddPhotoDetailsViewController: UIViewController, UITextViewDelegate {
         
         imageView.clipsToBounds = true
         
+        
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
@@ -35,12 +53,64 @@ class AddPhotoDetailsViewController: UIViewController, UITextViewDelegate {
         return true
     }
     
+    
     func textViewDidBeginEditing(textView: UITextView) {
         textView.text = ""
     }
     
     @IBAction func onPostButtonPressed(sender: UIButton) {
         
+        let imageData = imageView.image?.lowQualityJPEGNSData
+        
+        let photosRef = rootRefStorage.child("\(user)_photos")
+        let database = self.rootRefDB.child("posts") //2
+
+        
+        let photoRef = photosRef.child("\(NSUUID().UUIDString).jpg")
+
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+        photoRef.putData(imageData!, metadata: metadata).observeStatus(.Success) { (snapshot) in
+            
+            let postObject = Post(userID: "\(self.user!)",
+                                  caption: self.commentTextView.text,
+                                  image: (snapshot.metadata?.downloadURL()?.absoluteString)!,
+                                  location: self.locationTextView.text) //1
+            //            self.photoURLs.append(downloadURL())
+            //            print(snapshot)
+            postObject.objectId = "\(unsafeAddressOf(postObject))"
+            
+//            let currentDate = NSDateComponents()
+//            postObject.dateString = "\(currentDate.year).\(currentDate.month).\(currentDate.day) \(currentDate.era)"
+//            postObject.day = currentDate.day
+//            postObject.month = currentDate.month
+//            postObject.minute = currentDate.minute
+//            postObject.second = currentDate.second
+//            postObject.hour = currentDate.hour
+////            postObject.year = currentDate.year
+//            currentDate.timeZone
+//            let currentdate = NSDate()
+            
+            
+            let postObjectID = postObject.objectId
+            
+            database.child(postObjectID!).setValue(["userID" : postObject.userID, "caption" : postObject.caption, "imageString" : postObject.image, "location" : postObject.location, "likes" : 0, "comments" : []])
+            
+            //database.childByAutoId().setValue(["urls": photoObject.imageString]) //3
+            
+            //let database = self.rootRefDB.child("users")
+            
+//            let cUser = instaUser(username: self.usernameField.text!,
+//                                  email: user!.email!,
+//                                  profileDescription: "",
+//                                  profilePicture: "",
+//                                  realName: self.realNameField.text!)
+            
+//            database.child(user!.uid).setValue(["username": cUser.username,
+//                "email": cUser.email, "profileDescription": cUser.profileDescription,
+//                "profilePicture": cUser.profilePicture, "realName": cUser.realName])
+        }
+
         print("yeaa lets post this.")
     }
 //    func textFieldShouldReturn(textField: UITextField) -> Bool {

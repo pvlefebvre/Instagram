@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PhotoTakeViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -16,7 +17,10 @@ class PhotoTakeViewController: UIViewController, UINavigationControllerDelegate,
     var currentImage: UIImage!
     var originalImage: UIImage!
     
-    var orientation: UIImageOrientation = .Up
+    let rootRefDB = FIRDatabase.database().reference() //reference to the root database
+    let rootRefStorage = FIRStorage.storage().reference()
+    
+    var orientation: UIImageOrientation = .Up //1
 
     var processedImage = UIImage()
 
@@ -36,12 +40,9 @@ class PhotoTakeViewController: UIViewController, UINavigationControllerDelegate,
 //        imagePicker = UIImagePickerController()
 //        imagePicker.delegate = self
 //        imagePicker.sourceType = .Camera
-//        
 //        presentViewController(imagePicker, animated: true, completion: nil)
         
         context = CIContext(options: nil)
-        
-        
 
     }
     
@@ -72,6 +73,7 @@ class PhotoTakeViewController: UIViewController, UINavigationControllerDelegate,
         originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         imageView.clipsToBounds = true
         orientation = (imageView.image?.imageOrientation)!
+        
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -82,7 +84,6 @@ class PhotoTakeViewController: UIViewController, UINavigationControllerDelegate,
         return 6
     }
     
-
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FilterCellsID", forIndexPath:indexPath) as? FilterCollectionViewCell {
@@ -129,7 +130,7 @@ class PhotoTakeViewController: UIViewController, UINavigationControllerDelegate,
         //if inputKeys.contains(kCIInputCenterKey) {currentFilter.setValue(CIVector(x: currentImage.size.width / 2, y: currentImage.size.height / 2), forKey: kCIInputCenterKey)}
         
         let cgimg = context.createCGImage(currentFilter.outputImage!, fromRect: currentFilter.outputImage!.extent)
-        processedImage = UIImage(CGImage: cgimg, scale:1, orientation: orientation)
+        processedImage = UIImage(CGImage: cgimg, scale:1, orientation: orientation) //3
     }
     
 
