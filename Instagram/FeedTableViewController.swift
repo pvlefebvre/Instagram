@@ -102,7 +102,11 @@ class FeedTableViewController: UITableViewController {
 
     }
 
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "commentSegue" {
+            print("HELLO")
+        }
+    }
     
 
     /*
