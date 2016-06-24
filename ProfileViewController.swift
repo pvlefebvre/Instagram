@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         screenHeight = screenSize.height
         
         let layout: UICollectionViewFlowLayout = profileCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
@@ -55,7 +55,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
             if let users = totalSnap["users"] as? NSDictionary {
                 //                let valueDict = users
                 self.currentUsername = users.valueForKey("\(self.user!)")!.valueForKey("username")! as? String
-                
+                self.title = "\(self.currentUsername!)"
             }
         }
         
@@ -76,6 +76,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
                         
                     }
                     dispatch_async(dispatch_get_main_queue(), {
+                        self.postsCounterLabel.text = "\(self.newArray.count)"
                         self.profileCollectionView.reloadData()
                     })
                 }
@@ -101,6 +102,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     
+    
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ProfilePhotoCell", forIndexPath: indexPath) as! ProfileGridCells
         
@@ -115,7 +118,6 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
 
         
         return cell
-        
         
     }
     
