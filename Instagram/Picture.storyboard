@@ -55,7 +55,7 @@
                                                     <rect key="frame" x="1" y="18" width="124" height="90"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbC-n8-7bY">
-                                                    <rect key="frame" x="8" y="0.5" width="111" height="16"/>
+                                                    <rect key="frame" x="8" y="0.0" width="111" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -85,7 +85,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hm-zA-dFI">
-                                <rect key="frame" x="50" y="488" width="77" height="30"/>
+                                <rect key="frame" x="25" y="488" width="77" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="V6a-BN-BxC"/>
                                     <constraint firstAttribute="width" constant="77" id="Wo8-2Z-diV"/>
@@ -96,7 +96,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXc-Av-Wdb">
-                                <rect key="frame" x="501" y="488" width="49" height="30"/>
+                                <rect key="frame" x="526" y="488" width="49" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="gLU-IF-hn9"/>
                                     <constraint firstAttribute="height" constant="30" id="ywg-1k-G8A"/>
@@ -108,10 +108,17 @@
                                     <segue destination="06b-Bt-8ab" kind="show" identifier="ToDetailAddScreen" id="xuE-X7-OTV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uff-Sb-qca">
+                                <rect key="frame" x="276" y="488" width="48" height="30"/>
+                                <state key="normal" title="Library"/>
+                                <connections>
+                                    <action selector="onLibraryButtonPressed:" destination="2ce-2J-uIl" eventType="touchUpInside" id="Qrm-PE-LEk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="CXc-Av-Wdb" secondAttribute="trailing" constant="50" id="1Qu-gf-SMF"/>
+                            <constraint firstAttribute="trailing" secondItem="CXc-Av-Wdb" secondAttribute="trailing" constant="25" id="1Qu-gf-SMF"/>
                             <constraint firstItem="6hm-zA-dFI" firstAttribute="top" secondItem="yRx-ZT-2hf" secondAttribute="bottom" constant="8" id="42p-R3-Tzv"/>
                             <constraint firstItem="n88-eB-dBQ" firstAttribute="top" secondItem="6hm-zA-dFI" secondAttribute="bottom" constant="20" id="JgM-KA-LU2"/>
                             <constraint firstItem="n88-eB-dBQ" firstAttribute="top" secondItem="CXc-Av-Wdb" secondAttribute="bottom" constant="33" id="P98-45-ben"/>
@@ -120,11 +127,13 @@
                             <constraint firstItem="5Q9-ha-JMs" firstAttribute="top" secondItem="UBb-dz-Yeg" secondAttribute="bottom" id="Uef-aK-Fii"/>
                             <constraint firstAttribute="trailing" secondItem="yRx-ZT-2hf" secondAttribute="trailing" id="bs3-Mc-Rvq"/>
                             <constraint firstItem="yRx-ZT-2hf" firstAttribute="leading" secondItem="QOv-IN-RYf" secondAttribute="leading" id="fI4-OS-T4D"/>
+                            <constraint firstItem="n88-eB-dBQ" firstAttribute="top" secondItem="Uff-Sb-qca" secondAttribute="bottom" constant="33" id="gdI-2O-163"/>
                             <constraint firstItem="yRx-ZT-2hf" firstAttribute="top" secondItem="5Q9-ha-JMs" secondAttribute="bottom" constant="8" id="iRj-Hu-BFh"/>
                             <constraint firstItem="5Q9-ha-JMs" firstAttribute="centerX" secondItem="QOv-IN-RYf" secondAttribute="centerX" id="jge-Uw-irW"/>
+                            <constraint firstItem="Uff-Sb-qca" firstAttribute="centerX" secondItem="QOv-IN-RYf" secondAttribute="centerX" id="kmH-N7-NE5"/>
                             <constraint firstItem="6hm-zA-dFI" firstAttribute="centerX" secondItem="QOv-IN-RYf" secondAttribute="centerX" constant="-241.5" id="q1O-hA-6DS"/>
                             <constraint firstItem="5Q9-ha-JMs" firstAttribute="leading" secondItem="QOv-IN-RYf" secondAttribute="leading" id="qTP-56-1Os"/>
-                            <constraint firstItem="6hm-zA-dFI" firstAttribute="leading" secondItem="QOv-IN-RYf" secondAttribute="leading" constant="50" id="s8f-ir-k8M"/>
+                            <constraint firstItem="6hm-zA-dFI" firstAttribute="leading" secondItem="QOv-IN-RYf" secondAttribute="leading" constant="25" id="s8f-ir-k8M"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -140,6 +149,7 @@
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="acceptButton" destination="CXc-Av-Wdb" id="oJv-XU-55z"/>
                         <outlet property="filtersCollectionView" destination="yRx-ZT-2hf" id="pkK-gB-ho7"/>
                         <outlet property="imageView" destination="5Q9-ha-JMs" id="ldI-sx-QXC"/>
                     </connections>

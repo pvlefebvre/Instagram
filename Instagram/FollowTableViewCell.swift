@@ -30,26 +30,5 @@ class FollowTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    
-//    @IBAction func followDidTap(sender: AnyObject) {
-//        
-//        if let user = FIRAuth.auth()?.currentUser {
-//            let ref = FIRDatabase.database().reference()
-//            let name = (usernameButton.titleLabel?.text)!
-//            //ref.child("users/\(user.uid)/following").setValue(["\(self.userID!)" : name])
-//            
-//            ref.child("users/\(user.uid)/following").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-//                let username = snapshot.value!
-//                username.setObject(name, forKey: "\(self.userID!)")
-//                ref.child("users/\(user.uid)/following").setValue(username)
-//            }) { (error) in
-//                print(error.localizedDescription)
-//            }
-//            
-//        } else {
-//            print("no")
-//        }
-//    }
 
 }

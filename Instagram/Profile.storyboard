@@ -16,7 +16,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="wDr-xs-PIm">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wDr-xs-PIm" id="hvZ-Ir-iec">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -65,7 +65,7 @@
         <!--Profile Name-->
         <scene sceneID="zhr-59-Kt8">
             <objects>
-                <viewController id="AKi-y1-5XX" customClass="ProfileViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileSB" id="AKi-y1-5XX" customClass="ProfileViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9pq-4I-jRV"/>
                         <viewControllerLayoutGuide type="bottom" id="WBv-uH-Rxd"/>
@@ -104,11 +104,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOA-UZ-C60">
-                                <rect key="frame" x="22" y="155" width="75" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOA-UZ-C60">
+                                <rect key="frame" x="22" y="155" width="213" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="8ji-iB-BSO"/>
-                                    <constraint firstAttribute="width" constant="75" id="cJN-Ra-WaH"/>
+                                    <constraint firstAttribute="width" constant="213" id="cJN-Ra-WaH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -157,6 +157,7 @@
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zZn-fJ-1I1">
                                 <rect key="frame" x="0.0" y="247" width="600" height="304"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="PcF-fI-2nD">
                                     <size key="itemSize" width="96" height="96"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -204,7 +205,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Edit Profile"/>
                                 <connections>
-                                    <segue destination="KTk-5z-r7e" kind="show" id="djA-Sd-5Jo"/>
+                                    <action selector="onEditProfileButtonPressed:" destination="AKi-y1-5XX" eventType="touchUpInside" id="Yny-oX-K3C"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -254,6 +255,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editProfileButton" destination="Htb-W3-gi5" id="Dzw-Dy-8uB"/>
                         <outlet property="followersCountLabel" destination="Ilq-7N-r60" id="KR0-yx-Du8"/>
                         <outlet property="followingCounterLabel" destination="hl3-YY-Pv1" id="zGq-ME-DCT"/>
                         <outlet property="postsCounterLabel" destination="eXf-cm-GbA" id="SBu-jh-KAs"/>
@@ -261,6 +263,7 @@
                         <outlet property="profileDescriptionLabel" destination="yQQ-1L-mVj" id="hvl-ZL-Nzg"/>
                         <outlet property="profileNameLabel" destination="JOA-UZ-C60" id="19X-dE-mP2"/>
                         <outlet property="profilePicture" destination="HXu-4R-eNY" id="kRN-wy-9Iy"/>
+                        <outlet property="rightBarButton" destination="V27-uA-cZB" id="kma-g7-aMW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s54-33-ENb" userLabel="First Responder" sceneMemberID="firstResponder"/>

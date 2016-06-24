@@ -27,7 +27,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let user = FIRAuth.auth()?.currentUser?.uid
     var currentUsername: String?
     
+    var selectedUsername: String?
+    
     var urlString: String?
+    
+    var otherProfile: Bool?
     
 //    let rootRefDB = FIRDatabase.database().reference()
     let rootRefStorage = FIRStorage.storage().reference()
@@ -37,11 +41,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let ref = FIRDatabase.database().reference()
         
         ref.child("users").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            // Get user value
+            self.users.removeAll()
             let snapshotVal = snapshot.value! as! [String : AnyObject]
             for (keyt, valuest) in snapshotVal {
                 if keyt != FIRAuth.auth()?.currentUser?.uid {
                     let namet = valuest["username"] as! String
+                    print(namet)
                     let pict = valuest["profilePicture"] as! String
                     let item = UserItem(username: namet, profilePicture: pict, userID: keyt)
                     self.users.append(item)
@@ -65,8 +70,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.urlString = users.valueForKey("\(self.user!)")!.valueForKey("profilePicture")! as? String
             }
         }
-
+        
     }
+    
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltered {
@@ -107,6 +113,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return range.location != NSNotFound
         })
         
+//        if 
+        
         if filteredUsers.count == 0 {
             isFiltered = false
         } else {
@@ -119,5 +127,38 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.searchBar.endEditing(true)
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        view.endEditing(true)
+        
+        if isFiltered == true {
+        selectedUsername = filteredUsers[indexPath.row].username as String
+        } else {
+            selectedUsername = users[indexPath.row].username as String
+        }
+        
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("profileSB") as! ProfileViewController
+        viewController.otherUser = selectedUsername!
+        viewController.otherProfile = true
+//        pushViewController(viewController, animated: true , completion: nil)
+        showViewController(viewController, sender: self)
+
+
+//        performSegueWithIdentifier("ToSearchedProfile", sender: self)
+    }
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "ToSearchedProfile" {
+//            let dvc = segue.destinationViewController as? ProfileViewController
+//            otherProfile = true
+//            dvc!.otherProfile = otherProfile
+//            dvc!.otherUser = selectedUsername
+//            
+//        }
+//    }
 //    func search
 }

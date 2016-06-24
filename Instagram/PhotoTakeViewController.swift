@@ -23,7 +23,9 @@ class PhotoTakeViewController: UIViewController, UINavigationControllerDelegate,
     var orientation: UIImageOrientation = .Up //1
 
     var processedImage = UIImage()
+//    let alwaysPlaceholder = UIImage(named: "takeapic")
 
+    @IBOutlet weak var acceptButton: UIButton!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var filtersCollectionView: UICollectionView!
@@ -33,7 +35,7 @@ class PhotoTakeViewController: UIViewController, UINavigationControllerDelegate,
         super.viewDidLoad()
         
         self.presentCamera()
-        
+
         imageView.image = UIImage(named: "takeapic")
         imageView.clipsToBounds = true
         originalImage = UIImage(named: "takeapic")
@@ -44,14 +46,26 @@ class PhotoTakeViewController: UIViewController, UINavigationControllerDelegate,
 //        presentViewController(imagePicker, animated: true, completion: nil)
         
         context = CIContext(options: nil)
+        
+        if originalImage == UIImage(named: "takeapic") {
+            acceptButton.hidden = true
+        }
 
     }
+    
+
+//    
+//    override func viewWillAppear(animated: Bool) {
+//        self.presentCamera()
+//
+//    }
     
     func presentCamera() {
         
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .Camera
+        //imagePicker.allowsEditing = true
         
         presentViewController(imagePicker, animated: true, completion: nil)
     }
@@ -65,6 +79,14 @@ class PhotoTakeViewController: UIViewController, UINavigationControllerDelegate,
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func onLibraryButtonPressed(sender: AnyObject) {
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         filtersCollectionView.reloadData()
@@ -74,6 +96,8 @@ class PhotoTakeViewController: UIViewController, UINavigationControllerDelegate,
         originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         imageView.clipsToBounds = true
         orientation = (imageView.image?.imageOrientation)!
+        
+        acceptButton.hidden = false
         
     }
     
