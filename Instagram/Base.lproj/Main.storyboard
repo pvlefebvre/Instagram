@@ -86,7 +86,6 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dln-xk-1ec">
                                             <rect key="frame" x="10" y="7" width="35" height="30"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
@@ -94,11 +93,12 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Enj-9V-7tx">
-                                            <rect key="frame" x="60" y="7" width="35" height="30"/>
+                                            <rect key="frame" x="60" y="7" width="51" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <state key="normal" title="Button"/>
+                                            <state key="normal" title="Comment"/>
                                             <connections>
                                                 <action selector="commentDidTouch:" destination="vB8-o5-Wxp" eventType="touchUpInside" id="brj-ly-z0j"/>
+                                                <segue destination="iAW-m0-9cZ" kind="show" id="DmK-54-WN1"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -148,6 +148,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QaI-Ay-cKs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2642" y="-238.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="r7q-Qv-Hdn">
+            <objects>
+                <viewController id="iAW-m0-9cZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IsW-ek-x96"/>
+                        <viewControllerLayoutGuide type="bottom" id="men-Uk-qT1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="neu-60-g2e">
+                        <rect key="frame" x="0.0" y="0.0" width="580" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5On-ye-fA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3345" y="-238.5"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">

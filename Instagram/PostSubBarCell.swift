@@ -8,29 +8,24 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseStorage
 
 class PostSubBarCell: UITableViewCell {
     
     var postID: String?
-
+    let postRef = FIRDatabase.database().reference().child("posts")
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        print("HELLO")
         
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        print("World")
-        // Configure the view for the selected state
     }
 
     @IBAction func likeDidTouch(sender: UIButton) {
-        print("\(self.postID!)")
-        print("posts/\((self.postID)!)")
-        let postRef = FIRDatabase.database().reference().child("posts/\((self.postID)!)")
-        postRef.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
+        postRef.child("\(self.postID!)").runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
             if var post = currentData.value as? [String : AnyObject], let uid = FIRAuth.auth()?.currentUser?.uid {
                 var stars : Dictionary<String, Bool>
                 stars = post["likers"] as? [String : Bool] ?? [:]
@@ -39,12 +34,10 @@ class PostSubBarCell: UITableViewCell {
                     // Unstar the post and remove self from stars
                     starCount -= 1
                     stars.removeValueForKey(uid)
-                    sender.backgroundColor = UIColor.grayColor()
                 } else {
                     // Star the post and add self to stars
                     starCount += 1
                     stars[uid] = true
-                    sender.backgroundColor = UIColor.yellowColor()
                 }
                 post["likes"] = starCount
                 post["likers"] = stars
@@ -62,7 +55,7 @@ class PostSubBarCell: UITableViewCell {
         }
     }
     @IBAction func commentDidTouch(sender: UIButton) {
-        print("dfsdffd")
+        
     }
 
 }

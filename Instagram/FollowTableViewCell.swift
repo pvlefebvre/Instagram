@@ -11,7 +11,6 @@ import Firebase
 
 class FollowTableViewCell: UITableViewCell {
 
-
     @IBOutlet weak var userImageButton: UIButton!
     @IBOutlet weak var usernameButton: UIButton!
     var userID: String?
