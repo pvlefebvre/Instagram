@@ -16,14 +16,21 @@ class PostSubBarCell: UITableViewCell {
     var postID: String?
     
     let postRef = FIRDatabase.database().reference().child("posts")
+    
+    
+    @IBOutlet weak var likeLabel: UILabel!
+    @IBOutlet weak var commentButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-    }
 
+    }
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
     }
+    
 
     @IBAction func likeDidTouch(sender: UIButton) {
         postRef.child("\(self.postID!)").runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
@@ -42,7 +49,7 @@ class PostSubBarCell: UITableViewCell {
                 }
                 post["likes"] = starCount
                 post["likers"] = stars
-                
+                self.likeLabel.text = "\(starCount)"
                 // Set value and report transaction success
                 currentData.value = post
                 

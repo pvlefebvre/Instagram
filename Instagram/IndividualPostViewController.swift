@@ -46,7 +46,7 @@ class IndividualPostViewController: UIViewController, UITableViewDataSource, UIT
                         if value2 as? String == urlString {
                             
                             
-                            self.new_element = PostItem(postID: "\(key)", caption: targetPost?.valueForKey("caption")! as! String, location: targetPost?.valueForKey("location")! as! String, likes: targetPost?.valueForKey("likes")! as! NSNumber,pictureID: targetPost?.valueForKey("imageString")! as! String, userID: targetPost?.valueForKey("userID")! as! String, username: targetPost?.valueForKey("username")! as! String, comments: ["12323","1232323","!@#@!#"])
+                            self.new_element = PostItem(postID: "\(key)", caption: targetPost?.valueForKey("caption")! as! String, location: targetPost?.valueForKey("location")! as! String, likes: targetPost?.valueForKey("likes")! as! NSNumber,pictureID: targetPost?.valueForKey("imageString")! as! String, userID: targetPost?.valueForKey("userID")! as! String, username: targetPost?.valueForKey("username")! as! String, comments: [])
                             
                             
                             
