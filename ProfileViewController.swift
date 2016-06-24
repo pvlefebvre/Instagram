@@ -23,6 +23,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var profileCollectionView: UICollectionView!
     @IBOutlet weak var profilePicture: UIImageView!
     
+    var profileURLString: String?
+    
     let rootRefDB = FIRDatabase.database().reference()
     let rootRefStorage = FIRStorage.storage().reference()
     
@@ -148,6 +150,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                     
                     let urlString = users.valueForKey("\(self.user!)")!.valueForKey("profilePicture")! as? String
                     self.profilePicture.kf_setImageWithURL(NSURL(string: "\(urlString!)")!, placeholderImage: nil)
+                    self.profileURLString = users.valueForKey("\(self.user!)")!.valueForKey("profilePicture")! as? String
                     
                     self.profileNameLabel.text = users.valueForKey("\(self.user!)")!.valueForKey("realName")! as? String
                     
@@ -300,6 +303,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         storageRef.putData(imageData, metadata: metadata).observeStatus(.Success) { (snapshot) in
             
             database.child("\(self.user!)/profilePicture").setValue(snapshot.metadata?.downloadURL()?.absoluteString)
+            
 
         }
         
@@ -401,8 +405,19 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ToIndividualPost" {
+            let dvc = segue.destinationViewController as? IndividualPostViewController
+            let indexPath = self.profileCollectionView.indexPathsForSelectedItems()
+            let url = self.newArray[(indexPath?.first?.row)!]
+            dvc!.postURL = url
+            dvc!.profilePictureString = profileURLString!
+            
+        } else {
+            
         if otherProfile == true {
             otherProfile = false
+            
+        }
         }
     }
 

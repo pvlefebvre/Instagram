@@ -20,7 +20,7 @@ struct PostItem {
     var pictureID: NSString
     var userID: NSString
     var username: NSString
-    var comments: Array<NSString>
+    var comments: Array<Comment>
 
 }
 
@@ -30,21 +30,31 @@ class FeedTableViewController: UITableViewController {
     let max = 10
     let rootRefDB = FIRDatabase.database().reference()
     let rootRefStorage = FIRStorage.storage().reference()
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        ///////////////////////////////////////////
         
         //////////////////////////////////////////
         
         rootRefDB.observeSingleEventOfType(.Value) { (snap: FIRDataSnapshot) in
-            //self.newArray.removeAll()
+            
             let receivedPosts = (snap.value as? NSDictionary)!
             if let post = receivedPosts["posts"] as? NSDictionary {
                     for (key, value) in post {
+                        var postComments = Array<Comment>()
                         let finalPost = value as? NSDictionary
                         var new_element:PostItem
-                        new_element = PostItem(postID: "\(key)",caption: "\((finalPost!["caption"])!)",location: "\((finalPost!["location"])!)",likes: finalPost!["likes"] as! NSNumber,pictureID: "\((finalPost!["imageString"])!)",userID: "\((finalPost!["userID"])!)", username: "\((finalPost!["username"])!)", comments: ["12323","1232323","!@#@!#"])
+                        if let pComments = finalPost!["comments"] as? [String : AnyObject] {
+                            for (_,value) in pComments{
+                                let item1 = value["userID"] as! String
+                                let item2 = value["username"] as! String
+                                let item3 = value["message"] as! String
+                                let com = Comment(userID: item1, username: item2, message: item3)
+                                postComments.append(com)
+                            }
+                        }
+                        new_element = PostItem(postID: "\(key)",caption: "\((finalPost!["caption"])!)",location: "\((finalPost!["location"])!)",likes: finalPost!["likes"] as! NSNumber,pictureID: "\((finalPost!["imageString"])!)",userID: "\((finalPost!["userID"])!)", username: "\((finalPost!["username"])!)", comments: postComments)
                         
                         
                       self.posts.append(new_element)
@@ -94,16 +104,30 @@ class FeedTableViewController: UITableViewController {
         } else if indexPath.row == 1{
             let cell = tableView.dequeueReusableCellWithIdentifier("SubBarCell", forIndexPath: indexPath) as! PostSubBarCell
             cell.postID = posts[indexPath.section].postID as String
+            cell.likeLabel.text = "\(posts[indexPath.section].likes)"
+            cell.commentButton.restorationIdentifier = "\(indexPath.section)"
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! PostCommentCell
+            let comments = NSMutableString()
+            comments.appendString("\(posts[indexPath.section].caption)\n")
+            for com in posts[indexPath.section].comments {
+                comments.appendString("\(com.username):\n\(com.message)\n")
+            }
+            cell.commentsTextView.text = comments as String
             return cell
         }
 
     }
-
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "commentSegue" {
+            let dvc = segue.destinationViewController as! CommentViewController
+            let item = "\((sender!.restorationIdentifier!)!)" as NSString
+            let item2 = item.integerValue
+            dvc.postID = posts[item2].postID
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
