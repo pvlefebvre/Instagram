@@ -34,8 +34,9 @@ class PhotoTakeViewController: UIViewController, UINavigationControllerDelegate,
         
         self.presentCamera()
         
-        imageView.image = UIImage(named: "placeholder")
-        originalImage = UIImage(named: "placeholder")
+        imageView.image = UIImage(named: "takeapic")
+        imageView.clipsToBounds = true
+        originalImage = UIImage(named: "takeapic")
         
 //        imagePicker = UIImagePickerController()
 //        imagePicker.delegate = self
@@ -162,8 +163,9 @@ class PhotoTakeViewController: UIViewController, UINavigationControllerDelegate,
     }
     
     @IBAction func onAcceptButtonPressed(sender: UIButton) {
+        if originalImage != UIImage(named: "takeapic") {
         performSegueWithIdentifier("ToDetailAddScreen", sender: nil)
-
+        }
     }
     
     

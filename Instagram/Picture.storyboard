@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Photo Take View Controller-->
+        <!-- -->
         <scene sceneID="nMv-1I-26y">
             <objects>
                 <viewController id="2ce-2J-uIl" customClass="PhotoTakeViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -135,7 +135,9 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="8fo-sJ-qx7"/>
+                    <tabBarItem key="tabBarItem" title=" " image="camera" selectedImage="camera_fill" id="8fo-sJ-qx7">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="filtersCollectionView" destination="yRx-ZT-2hf" id="pkK-gB-ho7"/>
@@ -237,4 +239,8 @@
             <point key="canvasLocation" x="1761" y="1208"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera" width="30" height="30"/>
+        <image name="camera_fill" width="30" height="30"/>
+    </resources>
 </document>

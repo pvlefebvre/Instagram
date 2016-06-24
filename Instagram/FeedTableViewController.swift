@@ -30,6 +30,8 @@ class FeedTableViewController: UITableViewController {
     let max = 10
     let rootRefDB = FIRDatabase.database().reference()
     let rootRefStorage = FIRStorage.storage().reference()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

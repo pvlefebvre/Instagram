@@ -59,7 +59,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="580" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t6Z-2z-Bbh">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t6Z-2z-Bbh">
                                             <rect key="frame" x="0.0" y="0.0" width="580" height="250"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="t6Z-2z-Bbh" secondAttribute="height" multiplier="58:25" id="Y7L-0Z-OKi"/>
@@ -248,11 +248,13 @@
             </objects>
             <point key="canvasLocation" x="446" y="848"/>
         </scene>
-        <!--Navigation Controller-->
+        <!-- -->
         <scene sceneID="9bH-Ay-9aw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ubd-y2-y00" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="recents" id="Ydt-l7-Mp7"/>
+                    <tabBarItem key="tabBarItem" title=" " image="home" selectedImage="home_fill" id="Ydt-l7-Mp7">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9vN-gF-Lqg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -267,7 +269,7 @@
             </objects>
             <point key="canvasLocation" x="1117" y="356"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Item-->
         <scene sceneID="J5N-tF-bFs">
             <objects>
                 <viewController id="xnO-ev-hQF" customClass="SearchViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -290,37 +292,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXY-xj-Hub">
-                                                    <rect key="frame" x="8" y="10" width="46" height="30"/>
-                                                    <state key="normal" title="Button"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6N-n3-34I">
-                                                    <rect key="frame" x="84" y="10" width="46" height="30"/>
-                                                    <state key="normal" title="Button"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCW-Ws-gdz">
-                                                    <rect key="frame" x="541" y="10" width="44" height="30"/>
-                                                    <state key="normal" title="Follow"/>
-                                                    <connections>
-                                                        <action selector="followDidTap:" destination="xPS-cu-FxY" eventType="touchUpInside" id="3Ql-ru-7Cu"/>
-                                                    </connections>
-                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="He3-lv-BBZ">
+                                                    <rect key="frame" x="10" y="7.5" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="8er-Qs-ajx"/>
+                                                        <constraint firstAttribute="width" constant="35" id="Ds3-cz-5Dc"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yqa-a1-lud">
+                                                    <rect key="frame" x="61" y="14" width="284" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="284" id="yMS-oT-2Ig"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="dXY-xj-Hub" firstAttribute="leading" secondItem="zQZ-g9-GEi" secondAttribute="leading" constant="8" id="7Qh-Lw-JEl"/>
-                                                <constraint firstItem="t6N-n3-34I" firstAttribute="top" secondItem="zQZ-g9-GEi" secondAttribute="top" constant="10" id="D3M-Rr-PiX"/>
-                                                <constraint firstAttribute="bottom" secondItem="qCW-Ws-gdz" secondAttribute="bottom" constant="9.5" id="GMl-YD-Bop"/>
-                                                <constraint firstAttribute="trailing" secondItem="qCW-Ws-gdz" secondAttribute="trailing" constant="15" id="W8x-eJ-rhy"/>
-                                                <constraint firstItem="t6N-n3-34I" firstAttribute="leading" secondItem="dXY-xj-Hub" secondAttribute="trailing" constant="30" id="XJr-yN-U6c"/>
-                                                <constraint firstAttribute="bottom" secondItem="t6N-n3-34I" secondAttribute="bottom" constant="9.5" id="h5m-hj-lkJ"/>
-                                                <constraint firstItem="qCW-Ws-gdz" firstAttribute="top" secondItem="zQZ-g9-GEi" secondAttribute="top" constant="10" id="l1X-Xh-BQT"/>
-                                                <constraint firstAttribute="bottom" secondItem="dXY-xj-Hub" secondAttribute="bottom" constant="9.5" id="rcO-RV-5t5"/>
-                                                <constraint firstItem="dXY-xj-Hub" firstAttribute="top" secondItem="zQZ-g9-GEi" secondAttribute="top" constant="10" id="vwu-TM-KMS"/>
+                                                <constraint firstItem="He3-lv-BBZ" firstAttribute="centerY" secondItem="zQZ-g9-GEi" secondAttribute="centerY" id="0yQ-Jk-eTk"/>
+                                                <constraint firstItem="Yqa-a1-lud" firstAttribute="centerY" secondItem="zQZ-g9-GEi" secondAttribute="centerY" id="MGA-aS-ELC"/>
+                                                <constraint firstItem="He3-lv-BBZ" firstAttribute="leading" secondItem="zQZ-g9-GEi" secondAttribute="leading" constant="10" id="XfO-py-YHV"/>
+                                                <constraint firstItem="Yqa-a1-lud" firstAttribute="leading" secondItem="He3-lv-BBZ" secondAttribute="trailing" constant="16" id="lB5-Pe-vME"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="userImageButton" destination="dXY-xj-Hub" id="ZA3-rl-q0t"/>
-                                            <outlet property="usernameButton" destination="t6N-n3-34I" id="69w-nU-WOn"/>
+                                            <outlet property="searchCellImage" destination="He3-lv-BBZ" id="QOe-dd-Cs3"/>
+                                            <outlet property="searchCellLabel" destination="Yqa-a1-lud" id="TEP-yx-op7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -348,6 +346,9 @@
                             <constraint firstItem="7aA-af-Qqr" firstAttribute="top" secondItem="Uy7-Eh-iOu" secondAttribute="bottom" id="sli-mv-l3E"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="search_fill" id="OPO-UO-e3n">
+                        <inset key="imageInsets" minX="15" minY="17" maxX="15" maxY="13"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="P1I-1A-9tn"/>
                     <connections>
                         <outlet property="searchBar" destination="7aA-af-Qqr" id="ZWY-kT-uim"/>
@@ -358,11 +359,13 @@
             </objects>
             <point key="canvasLocation" x="2661" y="1105"/>
         </scene>
-        <!--Navigation Controller-->
+        <!-- -->
         <scene sceneID="lL0-Vo-h7o">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JFk-Hi-7LH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="bOr-cI-Jsf"/>
+                    <tabBarItem key="tabBarItem" title=" " image="search" selectedImage="search_fill" id="bOr-cI-Jsf">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eaR-9d-Y0w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -378,4 +381,10 @@
             <point key="canvasLocation" x="1929" y="1105"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="30" height="30"/>
+        <image name="home_fill" width="30" height="30"/>
+        <image name="search" width="30" height="30"/>
+        <image name="search_fill" width="30" height="30"/>
+    </resources>
 </document>

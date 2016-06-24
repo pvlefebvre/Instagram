@@ -55,7 +55,7 @@ class RegistrationPageViewController: UIViewController, UITextFieldDelegate {
                         let cUser = instaUser(username: self.usernameField.text!,
                             email: user!.email!,
                             profileDescription: "",
-                            profilePicture: "",
+                            profilePicture: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",
                             realName: self.realNameField.text!)
 
                         database.child(user!.uid).setValue(["username": cUser.username,

@@ -11,8 +11,13 @@ import Firebase
 
 class FollowTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var userImageButton: UIButton!
-    @IBOutlet weak var usernameButton: UIButton!
+//    @IBOutlet weak var userImageButton: UIButton!
+//    @IBOutlet weak var usernameButton: UIButton!
+    
+    
+    @IBOutlet var searchCellImage: UIImageView!
+    @IBOutlet var searchCellLabel: UILabel!
+    
     var userID: String?
     
     override func awakeFromNib() {
@@ -25,23 +30,26 @@ class FollowTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    @IBAction func followDidTap(sender: AnyObject) {
-        if let user = FIRAuth.auth()?.currentUser {
-            let ref = FIRDatabase.database().reference()
-            let name = (usernameButton.titleLabel?.text)!
-            //ref.child("users/\(user.uid)/following").setValue(["\(self.userID!)" : name])
-            
-            ref.child("users/\(user.uid)/following").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-                let usernamey = snapshot.value!
-                usernamey.setObject(name, forKey: "\(self.userID!)")
-                ref.child("users/\(user.uid)/following").setValue(usernamey)
-            }) { (error) in
-                print(error.localizedDescription)
-            }
-            
-        } else {
-            print("no")
-        }
-    }
+    
+    
+//    @IBAction func followDidTap(sender: AnyObject) {
+//        
+//        if let user = FIRAuth.auth()?.currentUser {
+//            let ref = FIRDatabase.database().reference()
+//            let name = (usernameButton.titleLabel?.text)!
+//            //ref.child("users/\(user.uid)/following").setValue(["\(self.userID!)" : name])
+//            
+//            ref.child("users/\(user.uid)/following").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+//                let username = snapshot.value!
+//                username.setObject(name, forKey: "\(self.userID!)")
+//                ref.child("users/\(user.uid)/following").setValue(username)
+//            }) { (error) in
+//                print(error.localizedDescription)
+//            }
+//            
+//        } else {
+//            print("no")
+//        }
+//    }
 
 }

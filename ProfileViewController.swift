@@ -50,12 +50,21 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         
+
+        
         rootRefDB.observeSingleEventOfType(.Value) { (snap: FIRDataSnapshot) in
             let totalSnap = (snap.value as? NSDictionary)!
             if let users = totalSnap["users"] as? NSDictionary {
-                //                let valueDict = users
+
                 self.currentUsername = users.valueForKey("\(self.user!)")!.valueForKey("username")! as? String
-                self.title = "\(self.currentUsername!)"
+                self.navigationItem.title = "\(self.currentUsername!)"
+
+                let urlString = users.valueForKey("\(self.user!)")!.valueForKey("profilePicture")! as? String
+                self.profilePicture.kf_setImageWithURL(NSURL(string: "\(urlString!)")!, placeholderImage: nil)
+                
+                self.profileNameLabel.text = users.valueForKey("\(self.user!)")!.valueForKey("realName")! as? String
+
+
             }
         }
         
@@ -63,17 +72,18 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
             self.newArray.removeAll()
             let snapshotAll = (snap.value as? NSDictionary)!
             if let posts = snapshotAll["posts"] as? NSDictionary {
-//                if let urls = takenPhotos["urls"] as? NSDictionary {
-                
+
                     for (_, value) in posts {
                         let valueDict = value as! NSDictionary
-                        
-                        if valueDict.valueForKey("username")! as! String == "\(self.currentUsername!)" {
+                        print("running through")
+                        print(valueDict.valueForKey("username")!)
+                        print("\(self.currentUsername!)")
+                        if valueDict.valueForKey("username") as! String == "\(self.currentUsername!)" {
                             let finalPost = valueDict.valueForKey("imageString")! as! String
                             let newURL = NSURL(string: finalPost)
+                            print("in it!")
                             self.newArray.append(newURL!)
                         }
-                        
                     }
                     dispatch_async(dispatch_get_main_queue(), {
                         self.postsCounterLabel.text = "\(self.newArray.count)"
@@ -81,8 +91,6 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
                     })
                 }
             }
-        
-        
     }
     
     
@@ -100,8 +108,6 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
             return newArray.count
         }
     }
-    
-    
     
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
