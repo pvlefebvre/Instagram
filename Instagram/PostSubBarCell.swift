@@ -14,6 +14,7 @@ import FirebaseStorage
 class PostSubBarCell: UITableViewCell {
     
     var postID: String?
+    
     let postRef = FIRDatabase.database().reference().child("posts")
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -1,18 +1,16 @@
 //
-//  PostImageCell.swift
+//  PostCommentSingleCell.swift
 //  Instagram
 //
-//  Created by Paul Lefebvre on 6/20/16.
+//  Created by Lance Russ on 6/24/16.
 //  Copyright © 2016 Paul Lefebvre. All rights reserved.
 //
 
 import UIKit
 
-class PostImageCell: UITableViewCell {
+class PostCommentSingleCell: UITableViewCell {
 
-    @IBOutlet weak var postImage: UIImageView!
-    
-    
+    @IBOutlet weak var textView: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
