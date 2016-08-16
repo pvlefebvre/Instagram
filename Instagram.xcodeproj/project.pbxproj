@@ -352,7 +352,7 @@
 				TargetAttributes = {
 					E6AE0DCC1D14B02B00C366F1 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = U6R7NJL8LW;
+						DevelopmentTeam = VCHC46W3FB;
 					};
 					E6AE0DE31D14B02C00C366F1 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -724,7 +724,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mobilemakers.Instygram;
+				PRODUCT_BUNDLE_IDENTIFIER = mobilemakers.Instygramz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -739,7 +739,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mobilemakers.Instygram;
+				PRODUCT_BUNDLE_IDENTIFIER = mobilemakers.Instygramz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

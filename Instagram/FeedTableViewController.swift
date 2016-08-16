@@ -37,6 +37,8 @@ class FeedTableViewController: UITableViewController {
         
         //////////////////////////////////////////
         
+        // Need to update this process to only show posts from people you follow
+        
         rootRefDB.observeSingleEventOfType(.Value) { (snap: FIRDataSnapshot) in
             
             let receivedPosts = (snap.value as? NSDictionary)!

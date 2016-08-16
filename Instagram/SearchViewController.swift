@@ -92,8 +92,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.searchCellImage.layer.cornerRadius = cell.searchCellImage.frame.size.width/2
             cell.searchCellImage.clipsToBounds = true
 
-
-//            cell.usernameButton.setTitle(filteredUsers[indexPath.row].username as String, forState: UIControlState.Normal)
+//          cell.usernameButton.setTitle(filteredUsers[indexPath.row].username as String, forState: UIControlState.Normal)
             cell.userID = filteredUsers[indexPath.row].userID as String
             
         } else {
@@ -112,8 +111,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return range.location != NSNotFound
         })
-        
-//        if 
         
         if filteredUsers.count == 0 {
             isFiltered = false
@@ -139,12 +136,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let viewController = storyboard.instantiateViewControllerWithIdentifier("profileSB") as! ProfileViewController
         viewController.otherUser = selectedUsername!
-        viewController.otherProfile = true
-//        pushViewController(viewController, animated: true , completion: nil)
+        viewController.otherProfile = true // operates same as a PrepareForSegue
+        
         showViewController(viewController, sender: self)
-
-
-//        performSegueWithIdentifier("ToSearchedProfile", sender: self)
+        // pushViewController(viewController, animated: true , completion: nil)
+        // performSegueWithIdentifier("ToSearchedProfile", sender: self)
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
@@ -160,5 +156,5 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //            
 //        }
 //    }
-//    func search
+    
 }
