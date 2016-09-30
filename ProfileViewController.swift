@@ -190,7 +190,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                 }
             }
             
-        } else { // Else if it is not your profile.
+        // Else if it is not your profile.
+        } else {
             
             rootRefDB.observeSingleEventOfType(.Value) { (snap: FIRDataSnapshot) in
                 let totalSnap = (snap.value as? NSDictionary)!
@@ -226,7 +227,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                         if valueDict.valueForKey("username") as! String == "\(self.currentUsername!)" {
                             let finalPost = valueDict.valueForKey("imageString")! as! String
                             let newURL = NSURL(string: finalPost)
-                            print("in it!")
+                            //print("in it!")
                             self.newArray.append(newURL!)
                         }
                     }
@@ -240,6 +241,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
     }
     
+    //set up the profile to function/look different depending on if it is your own profile or someone elses
     override func viewWillAppear(animated: Bool) {
         if otherProfile == true {
             if following == true {
